@@ -1,0 +1,116 @@
+/* This file is the descriptor for the Custom python dataset facebook_connector_ads-insights-dataset */
+{
+    /* Meta data for display purposes */
+    "meta" : {
+        "label" : "Facebook Ads Insights Dataset",
+        "description" : "Dataset reporting the campaigns' performance on a given time range & Facebook account",
+        "icon" : "icon-puzzle-piece"
+    },
+
+    /* Can this connector read data ? */
+    "readable" : true,
+    /* Can this connector write data ? */
+    "writable" : true,
+
+
+    /* The field "params" holds a list of all the params
+       for wich the user will be prompted for values:
+
+       The available parameter types are:
+       STRING, INT, DOUBLE, BOOLEAN, PASSWORD, SELECT, MAP, TEXTAREA
+    */
+
+    "params": [
+        {
+            "name": "date_start",
+            "label" : "Start date",
+            "type": "STRING",
+            "defaultValue": "2019-05-07",
+            "description": "Start date of the report in format YYYY-MM-dd",
+            "mandatory" : true
+        },
+        {
+            "name": "date_stop",
+            "label" : "End date",
+            "type": "STRING",
+            "defaultValue" : "2019-05-13",
+            "description": "End date of the report in format YYYY-MM-dd",
+            "mandatory" : true
+        },
+        {
+            "name": "ad_account_id",
+            "label" : "Ad Account ID",
+            "type": "STRING",
+            "defaultValue" : "act_1389426717950752",
+            "description": "ID of the Facebook Ad Account for which you want to fetch data",
+            "mandatory" : true
+        },
+        {
+            "name": "access_token",
+            "label" : "Access Token",
+            "type": "PASSWORD",
+            "description": "Access token provided by the Facebook developer app",
+            "mandatory" : true
+        },
+        /* A "SELECT" parameter is a multi-choice selector. Choices are specified using the selectChoice field*/
+        {
+            "name": "breakdowns",
+            "label" : "Breakdowns",
+            "type": "SELECT",
+            "description": "How to break down the result",
+            "defaultValue" : "device_platform",
+            "selectChoices": [
+                {
+                    "value": "country",
+                    "label": "Country"
+                },
+                {
+                    "value": "age",
+                    "label": "Age"
+                },
+                {
+                    "value": "gender",
+                    "label": "Gender"
+                },
+                {
+                    "value": "publisher_platform",
+                    "label": "Publisher & Platform"
+                },
+                {
+                    "value": "device_platform",
+                    "label": "Device & Platform"
+                },
+                {
+                    "value": "impression_device",
+                    "label": "Impression device"
+                }
+            ]
+        },
+        /* A "SELECT" parameter is a multi-choice selector. Choices are specified using the selectChoice field*/
+        {
+            "name": "level",
+            "label": "Level",
+            "type": "SELECT",
+            "description": "Represents the level of result.",
+            "defaultValue" : "campaign",
+            "selectChoices": [
+                {
+                    "value": "ad",
+                    "label": "Ad"
+                },
+                {
+                    "value": "adset",
+                    "label": "Ad set"
+                },
+                {
+                    "value": "campaign",
+                    "label": "Campaign"
+                },
+                {
+                    "value": "account",
+                    "label": "Account"
+                }
+            ]
+        }
+    ]
+}
